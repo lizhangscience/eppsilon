@@ -105,6 +105,8 @@ These flags (all default=0) tell the code to redo parts of the analysis that wou
 
 **allow_beam_approx**: This is a flag (valid values are 0/1, default=0) indicating that a less good beam integral approximation should be used if the beam_integral is not present or is zero in the obs structure. If this keyword is not set and the beam_integral is not present or is zero, eppsilon will fail fairly quickly. If this keyword is set and the beam_integral is not present or is zero, eppsilon will print a warning but continue using a less good approximation.
 
+**dft_z_use**: This controls what z values to use in the frequency DFT. This only applies if the frequency channels are not evenly spaced (in which case we do a DFT rather than an FFT). The two options are 'true' or 'regular', the default is 'true' which uses the actual z values. The 'regular' option uses regularly spaced z values which matches what would happen with an FFT over regularly spaced frequency channels (which are not regularly spaced in z).
+
 **std_power**: A rarely used testing/exploration flag (valid values are 0/1, default=0) indicating that the power should be calculated using the sine and cosine terms of the FFT along the frequency axis, rather than the Lomb-Scargle components.
 
 **no_wtd_avg**: A rarely used testing/exploration flag (valid values are 0/1, default=0) indicating that the power should be calculated as the sum of the square of the two Fourier Transform components (either Lomb-Scargle components or sine/cosine components if the std_power flag is set), rather than as a variance weighted sum of the square of the components.
